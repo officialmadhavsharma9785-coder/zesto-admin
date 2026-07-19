@@ -23,7 +23,7 @@ error.style.color = "green";
 error.innerHTML = "✅ Login Successful...";
 
 setTimeout(() => {
-window.location.href = "admin.html";
+window.location.href = "dashboard.html";
 },1000);
 
 }else{
