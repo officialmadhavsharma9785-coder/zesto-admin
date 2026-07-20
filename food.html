@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Food Management</title>
+
+<link rel="stylesheet" href="food.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<h2>🍔 Food Management</h2>
+
+<a href="dashboard.html">⬅ Dashboard</a>
+
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h3>Add New Food</h3>
+
+<label>Food Name</label>
+<input type="text" id="foodName" placeholder="Chicken Burger">
+
+<label>Price (₹)</label>
+<input type="number" id="foodPrice" placeholder="199">
+
+<label>Category</label>
+<select id="foodCategory">
+<option>Pizza</option>
+<option>Burger</option>
+<option>Biryani</option>
+<option>Drinks</option>
+<option>Momos</option>
+</select>
+
+<label>Description</label>
+<textarea id="foodDescription" placeholder="Enter food description"></textarea>
+
+<label>Upload Food Image</label>
+<input type="file" id="foodImage" accept="image/*">
+
+<img id="preview" src="https://via.placeholder.com/300x180?text=Food+Preview">
+
+<button id="addFoodBtn">➕ Add Food</button>
+
+</div>
+
+</div>
+
+<script src="food.js"></script>
+
+</body>
+
+  </html>
