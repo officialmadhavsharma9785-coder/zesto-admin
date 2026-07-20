@@ -1,3 +1,10 @@
+import { db } from "./firebase.js";
+
+import {
+  collection,
+  addDoc
+} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+
 // ===========================
 // ZESTO FOOD MANAGEMENT
 // ===========================
@@ -13,14 +20,12 @@ foodImage.addEventListener("change", function () {
 const file = this.files[0];
 
 if(file){
-
 preview.src = URL.createObjectURL(file);
-
 }
 
 });
 
-addFoodBtn.addEventListener("click", function(){
+addFoodBtn.addEventListener("click", async function(){
 
 const name = document.getElementById("foodName").value.trim();
 const price = document.getElementById("foodPrice").value.trim();
@@ -37,9 +42,17 @@ return;
 addFoodBtn.innerHTML="⏳ Adding Food...";
 addFoodBtn.disabled=true;
 
-setTimeout(()=>{
+try {
 
-alert("✅ Food Added Successfully! (Demo)");
+await addDoc(collection(db, "foods"), {
+name: name,
+price: price,
+category: category,
+description: description,
+createdAt: Date.now()
+});
+
+alert("✅ Food Added Successfully!");
 
 document.getElementById("foodName").value="";
 document.getElementById("foodPrice").value="";
@@ -47,10 +60,14 @@ document.getElementById("foodDescription").value="";
 document.getElementById("foodCategory").selectedIndex=0;
 preview.src="https://via.placeholder.com/300x180?text=Food+Preview";
 
+} catch(error){
+
+alert("❌ " + error.message);
+
+}
+
 addFoodBtn.innerHTML="➕ Add Food";
 addFoodBtn.disabled=false;
-
-},1000);
 
 });
 
